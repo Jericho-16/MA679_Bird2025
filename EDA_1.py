@@ -14,7 +14,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 
-# Load the provided CSV files
 train_df = pd.read_csv('train.csv')
 taxonomy_df = pd.read_csv('taxonomy.csv')
 sample_submission_df = pd.read_csv('sample_submission.csv')
