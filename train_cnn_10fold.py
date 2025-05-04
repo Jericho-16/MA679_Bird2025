@@ -14,7 +14,7 @@ class CFG:
     root_dir = "Local"
     metadata_csv = "metadata.csv"
     batch_size = 32
-    num_epochs = 3
+    num_epochs = 2
     lr = 1e-4
     n_folds = 10
     img_size = (224, 224)
@@ -62,8 +62,9 @@ def train_kfold(df):  # Accept filtered DataFrame as parameter
         train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
         val_loader = DataLoader(val_dataset, batch_size=CFG.batch_size, shuffle=False)
 
-        model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
-        model.fc = nn.Linear(model.fc.in_features, num_classes)
+        model = models.efficientnet_v2_s(weights=models.EfficientNet_V2_S_Weights.DEFAULT)
+        model.classifier[1] = nn.Linear(model.classifier[1].in_features, num_classes)
+
         model.to(device)
 
         criterion = nn.CrossEntropyLoss()
