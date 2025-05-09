@@ -43,7 +43,11 @@ The workflow includes data preparation, image generation, and model training wit
 ---
 
 ## 📂 Directory Structure
+
 ├── metadata.csv # File-to-label mapping
+
 ├── EDA_final.ipynb # Preprocessing and spectrogram generation
+
 ├── Training.ipynb # Baseline training
+
 ├── train_cnn_10fold.py # Cross-validation training
